@@ -18,7 +18,7 @@ Additionally, it accepts 2 query-string parameters.
 
 | Parameter | Example | Description |
 | --------- | ------- | ----------- |
-| `svg` | `true`|`false` | (Optional) Whether or not an SVG response should be returned. A value of `true` means that the response will be in SVG format. A value of `false` means that the response will be in PNG format. The default value is `false`. |
+| `svg` | `true`\|`false` | (Optional) Whether or not an SVG response should be returned. A value of `true` means that the response will be in SVG format. A value of `false` means that the response will be in PNG format. The default value is `false`. |
 | `size` | `300` | (Optional) For the PNG format, this is the length (in pixels) of one size of the square QR code. The default value is `300`. Any values larger than `1000` will be rounded down to `1000`. |
 
 ```
