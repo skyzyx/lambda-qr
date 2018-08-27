@@ -1,0 +1,19 @@
+hash: 2656c1eb9df04f052aee9a7d78b17dc8bc082ca75959f80584e03a1fe28b5de1
+updated: 2018-08-26T22:47:48.710301-07:00
+imports:
+- name: github.com/aaronarduino/goqrsvg
+  version: 6036478956817b980a8cf3715de687a3b2f53505
+- name: github.com/ajstarks/svgo
+  version: 644b8db467afccf19a0692a3e31a1868e4287ab8
+- name: github.com/aws/aws-lambda-go
+  version: 2d482ef09017ae953b1e8d5a6ddac5b696663a3c
+- name: github.com/boombuler/barcode
+  version: 3cfea5ab600ae37946be2b763b8ec2c1cf2d272d
+  subpackages:
+  - qr
+  - utils
+- name: github.com/tdewolff/minify
+  version: 8d72a4127ae33b755e95bffede9b92e396267ce2
+- name: github.com/tdewolff/parse
+  version: d739d6fccb0971177e06352fea02d3552625efb1
+testImports: []
