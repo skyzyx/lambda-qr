@@ -22,6 +22,7 @@ import (
 
 var (
 	err        error
+	isMock     *bool
 	isSVG      bool
 	mimetype   string
 	size       int64
@@ -52,6 +53,7 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 		qs := goqrsvg.NewQrSVG(qrCode, 5)
 		qs.StartQrSVG(s)
 		err = qs.WriteQrSVG(s)
+
 		if err != nil {
 			panic(err)
 		}
@@ -72,7 +74,12 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 		}
 
 		// Scale the barcode to size pixels
-		qrCode, _ = barcode.Scale(qrCode, int(size), int(size))
+		qrCode, err = barcode.Scale(qrCode, int(size), int(size))
+
+		if err != nil {
+			panic(err)
+		}
+
 		err = png.Encode(buf, qrCode)
 
 		if err != nil {
@@ -84,11 +91,9 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 
 	return events.APIGatewayProxyResponse{
 		Headers: map[string]string{
-			"Content-Type":                     mimetype,
-			"Access-Control-Allow-Origin":      "*",
-			"Access-Control-Allow-Credentials": "true",
-			"Last-Modified":                    cacheFrom,
-			"Expires":                          cacheFrom,
+			"Content-Type":  mimetype,
+			"Last-Modified": cacheFrom,
+			"Expires":       cacheFrom,
 		},
 		Body:       buf.String(),
 		StatusCode: statusCode,
@@ -97,7 +102,7 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 
 // The core function
 func main() {
-	isMock := flag.Bool("mock", false, "Read from the local `mock.json` file instead of an API Gateway request.")
+	isMock = flag.Bool("mock", false, "Read from the local `mock.json` file instead of an API Gateway request.")
 	flag.Parse()
 
 	if *isMock {

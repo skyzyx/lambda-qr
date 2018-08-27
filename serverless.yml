@@ -1,0 +1,52 @@
+# serverless.yml
+# docs.serverless.com
+
+service: "lambda-qr"
+
+# You can pin your service to only deploy with a specific Serverless version
+# Check out our docs for more details
+# frameworkVersion: "=X.X.X"
+frameworkVersion: ">=1.28.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: go1.x
+  memorySize: 128
+  timeout: 10
+  # tags:
+
+# you can overwrite defaults here
+stage: dev
+region: us-east-1
+
+package:
+ exclude:
+   - ./**
+ include:
+   - ./bin/**
+
+functions:
+  qr:
+    handler: bin/qr
+    events:
+      - http:
+          path: qr
+          method: post
+  debug:
+    handler: bin/debug
+    events:
+      - http:
+          path: debug
+          method: post
+
+# you can add CloudFormation resource templates here
+#resources:
+#  Resources:
+#    NewResource:
+#      Type: AWS::S3::Bucket
+#      Properties:
+#        BucketName: my-new-bucket
+#  Outputs:
+#     NewOutput:
+#       Description: "Description for the output"
+#       Value: "Some output value"

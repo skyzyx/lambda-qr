@@ -48,8 +48,8 @@
     "httpMethod": "POST",
     "apiId": "gy415nuibc"
   },
-  "body": "Hello World!",
+  "body": "MECARD:N:Steve Jobs Theater;ADR:10501 N Tantau Ave,Cupertino CA 95014,United States;;",
   "queryStringParameters": {
-    "svg": "true"
+    "size": "300"
   }
 }

@@ -1,2 +1,5 @@
-vendor/
+.serverless/
 bin/
+vendor/
+qr.png
+qr.svg
