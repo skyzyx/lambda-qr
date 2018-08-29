@@ -2,7 +2,9 @@ package main
 
 import (
 	"bytes"
+	"encoding/base64"
 	"encoding/json"
+	"errors"
 	"flag"
 	"fmt"
 	"image/png"
@@ -18,9 +20,12 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/boombuler/barcode"
 	"github.com/boombuler/barcode/qr"
+	// "github.com/davecgh/go-spew/spew"
 )
 
 var (
+	buf        bytes.Buffer
+	emptyAGW   *events.APIGatewayProxyResponse
 	err        error
 	isMock     *bool
 	isSVG      bool
@@ -32,22 +37,24 @@ var (
 // The API Gateway handler
 func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	statusCode = int(200)
+	emptyAGW = new(events.APIGatewayProxyResponse)
 
-	// Create the barcode
-	qrCode, _ := qr.Encode(request.Body, qr.H, qr.Auto)
-
-	// Do we want an SVG?
-	if isSVG, err = strconv.ParseBool(request.QueryStringParameters["svg"]); err != nil {
-		isSVG = false
+	if request.QueryStringParameters["body"] == "" {
+		return *emptyAGW, errors.New("The 'body' query string parameter is required.")
 	}
 
-	// Write image data to buffer
-	buf := new(bytes.Buffer)
+	// Create the barcode
+	qrCode, _ := qr.Encode(request.QueryStringParameters["body"], qr.H, qr.Auto)
+
+	// Do we want an SVG?
+	if isSVG, err = strconv.ParseBool(os.Getenv("QR_SVG")); err != nil {
+		isSVG = false
+	}
 
 	if isSVG {
 		// SVG
 		mimetype = "image/svg+xml"
-		s := svg.New(buf)
+		s := svg.New(&buf)
 
 		// Write QR code to SVG
 		qs := goqrsvg.NewQrSVG(qrCode, 5)
@@ -55,7 +62,7 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 		err = qs.WriteQrSVG(s)
 
 		if err != nil {
-			panic(err)
+			return *emptyAGW, err
 		}
 
 		s.End()
@@ -72,31 +79,42 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 		if size > 1000 {
 			size = 1000
 		}
+		if size < 150 {
+			size = 150
+		}
 
 		// Scale the barcode to size pixels
 		qrCode, err = barcode.Scale(qrCode, int(size), int(size))
 
 		if err != nil {
-			panic(err)
+			return *emptyAGW, err
 		}
 
-		err = png.Encode(buf, qrCode)
+		err = png.Encode(&buf, qrCode)
 
 		if err != nil {
-			panic(err)
+			return *emptyAGW, err
 		}
 	}
 
 	cacheFrom := time.Now().Format(http.TimeFormat)
+	cacheUntil := time.Now().AddDate(1, 0, 0).Format(http.TimeFormat)
 
+	imageBinary := buf.Bytes()
+	buf.Reset()
+
+	// API Gateway has this weird requirement for Lambda where you can't just return data without it being corrupted.
+	// Instead, you need to Base64-encode it coming out of Lambda, then tell API Gateway that it is Base64-encoded,
+	// which will decode it on the pass back to the client.
 	return events.APIGatewayProxyResponse{
 		Headers: map[string]string{
 			"Content-Type":  mimetype,
 			"Last-Modified": cacheFrom,
-			"Expires":       cacheFrom,
+			"Expires":       cacheUntil,
 		},
-		Body:       buf.String(),
-		StatusCode: statusCode,
+		Body:            base64.StdEncoding.EncodeToString(imageBinary),
+		StatusCode:      statusCode,
+		IsBase64Encoded: true,
 	}, nil
 }
 
@@ -107,9 +125,9 @@ func main() {
 
 	if *isMock {
 		// read json from file
-		inputJSON, err := ioutil.ReadFile("./mock.json")
-		if err != nil {
-			fmt.Println(err.Error())
+		inputJSON, jsonErr := ioutil.ReadFile("./mock.json")
+		if jsonErr != nil {
+			fmt.Println(jsonErr.Error())
 			os.Exit(1)
 		}
 
@@ -120,9 +138,19 @@ func main() {
 			os.Exit(1)
 		}
 
-		response, _ := Handler(inputEvent)
+		response, err := Handler(inputEvent)
+		if err != nil {
+			fmt.Println(err.Error())
+			os.Exit(1)
+		}
 
-		fmt.Println(response.Body)
+		data, err := base64.StdEncoding.DecodeString(response.Body)
+		if err != nil {
+			fmt.Println(err.Error())
+			os.Exit(1)
+		}
+
+		fmt.Println(string(data))
 	} else {
 		lambda.Start(Handler)
 	}

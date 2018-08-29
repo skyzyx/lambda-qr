@@ -1,7 +1,5 @@
 # QR Code Generator for AWS Lambda
 
-> **IMPORTANT:** Work-in-Progress. This package does not (yet) work the way it is described below.
-
 Will take the request body that is POSTed to the endpoint, and generate a QR code from it.
 
 This is a _Serverless_ app, written in Go ([Golang]), running in AWS Lambda, with API Gateway in front of it, and AWS CloudFront in front of that (for caching).
@@ -10,22 +8,25 @@ This is a _Serverless_ app, written in Go ([Golang]), running in AWS Lambda, wit
 
 ## Usage
 
-The `{endpoint}` endpoint is an API Gateway configuration sitting in front of a Lambda function.
+The `https://qr.ryanparman.com` hostname is a CloudFront caching distribution, in front of API Gateway, in front of a Lambda function.
 
-The contents of the QR code should be sent as the request body in a `POST` request to the endpoint. **No attempt is made to ascertain meaning from the input.** As such, it would be wise of you to review the QR Code formatting documentation at [github:zxing/zxing](https://github.com/zxing/zxing/wiki/Barcode-Contents).
+There are two endpoints:
+
+* `qr.png` — This will return a (bitmap) PNG file.
+* `qr.svg` — This will return a (vector) SVG file.
 
 Additionally, it accepts 2 query-string parameters.
 
 | Parameter | Example | Description |
 | --------- | ------- | ----------- |
-| `svg` | `true`\|`false` | (Optional) Whether or not an SVG response should be returned. A value of `true` means that the response will be in SVG format. A value of `false` means that the response will be in PNG format. The default value is `false`. |
-| `size` | `300` | (Optional) For the PNG format, this is the length (in pixels) of one size of the square QR code. The default value is `300`. Any values larger than `1000` will be rounded down to `1000`. |
+| `body` | `Hello world!` | (Required) The contents of the QR code. **No attempt is made to ascertain meaning from the input.** As such, it would be wise of you to review the QR Code formatting documentation at [github:zxing/zxing](https://github.com/zxing/zxing/wiki/Barcode-Contents). |
+| `size` | `300` | (Optional) For the PNG format, this is the length (in pixels) of one size of the square QR code. Allowed range is `150`–`1000`. The default value is `300`. |
 
 ```
-https://{hostname}/dev/qr
-https://{hostname}/dev/qr?size=300
-https://{hostname}/dev/qr?svg=true
+https://qr.ryanparman.com/qr.png?size=600&body=Hello%20world!
 ```
+
+> **NOTE:** Different browsers support different maximum lengths for URLs, with a generally-accepted answer of 2083 characters end-to-end. Some browsers support longer URLs, but in practice, trying to pack that much data into a little QR code results in a barely-usable QR code. As such, it is recommended that you stick to less verbose data structures.
 
 ### Response Bodies
 
@@ -80,7 +81,12 @@ If you are performing local development/testing, run `make build` to build for t
 
 ```bash
 make build
+
+# PNG
 bin/qr -mock
+
+# SVG
+QR_SVG=true bin/qr -mock
 ```
 
 Make sure that you run the linter to catch any issues.

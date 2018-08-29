@@ -1,0 +1,21 @@
+{
+  "name": "lambda-qr",
+  "version": "1.0.0",
+  "description": "QR codes with AWS Lambda, Golang, and API Gateway.",
+  "dependencies": {},
+  "devDependencies": {
+    "serverless-api-cloudfront": "^0.9.4",
+    "serverless-apigw-binary": "^0.4.4",
+    "serverless-apigwy-binary": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skyzyx/lambda-qr.git"
+  },
+  "author": "Ryan Parman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skyzyx/lambda-qr/issues"
+  },
+  "homepage": "https://github.com/skyzyx/lambda-qr#readme"
+}

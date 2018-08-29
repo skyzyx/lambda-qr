@@ -1,5 +1,6 @@
 .serverless/
 bin/
-vendor/
+node_modules/
 qr.png
 qr.svg
+vendor/

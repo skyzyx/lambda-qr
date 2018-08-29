@@ -1,5 +1,8 @@
 # serverless.yml
-# docs.serverless.com
+
+# https://docs.serverless.com
+# https://medium.com/nextfaze/binary-responses-with-serverless-framework-and-api-gateway-5fde91376b76
+# https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
 
 service: "lambda-qr"
 
@@ -8,16 +11,40 @@ service: "lambda-qr"
 # frameworkVersion: "=X.X.X"
 frameworkVersion: ">=1.28.0 <2.0.0"
 
-provider:
-  name: aws
-  runtime: go1.x
-  memorySize: 128
-  timeout: 10
-  # tags:
-
 # you can overwrite defaults here
 stage: dev
 region: us-east-1
+
+plugins:
+  - serverless-apigw-binary
+  - serverless-apigwy-binary
+  - serverless-api-cloudfront
+
+custom:
+  domain: qr.ryanparman.com
+  bucket: qr-ryanparman-com
+  apigwBinary:
+    types:
+      - "image/png"
+      - "*/*"
+  apiCloudFront:
+    domain: ${self:custom.domain}
+    compress: true
+    logging:
+      bucket: ${self:custom.bucket}.s3.amazonaws.com
+      prefix: ${self:provider.stage}
+    cookies: none
+    querystring:
+      - size
+      - body
+
+provider:
+  name: aws
+  runtime: go1.x
+  stage: ${opt:stage, 'dev'}
+  memorySize: 128
+  timeout: 10
+  # tags:
 
 package:
  exclude:
@@ -26,27 +53,31 @@ package:
    - ./bin/**
 
 functions:
-  qr:
+  qr-png:
     handler: bin/qr
     events:
       - http:
-          path: qr
-          method: post
-  debug:
-    handler: bin/debug
+          path: qr.png
+          method: get
+          contentHandling: CONVERT_TO_BINARY
+  qr-svg:
+    handler: bin/qr
+    environment:
+      QR_SVG: "true"
     events:
       - http:
-          path: debug
-          method: post
+          path: qr.svg
+          method: get
+          contentHandling: CONVERT_TO_BINARY
 
 # you can add CloudFormation resource templates here
-#resources:
-#  Resources:
-#    NewResource:
-#      Type: AWS::S3::Bucket
-#      Properties:
-#        BucketName: my-new-bucket
-#  Outputs:
-#     NewOutput:
-#       Description: "Description for the output"
-#       Value: "Some output value"
+resources:
+  Resources:
+    NewResource:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.bucket}
+  Outputs:
+     ApiDistribution:
+       Description: "ApiDistribution"
+       Value: ApiDistribution
