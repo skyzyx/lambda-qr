@@ -38,7 +38,7 @@ The most boring and unformatted of plain text.
 Hello world!
 ```
 
-![](https://qr.ryanparman.com/qr.png?size=150&body=Hello%20world!)
+[Click](https://qr.ryanparman.com/qr.png?size=150&body=Hello%20world!)
 
 #### Wi-Fi connection
 
@@ -50,7 +50,7 @@ Any URL is valid, but most QR readers will only support `http:` and `https`.
 https://ryanparman.com
 ```
 
-![](https://qr.ryanparman.com/qr.png?size=150&body=https%3A%2F%2Fryanparman.com)
+[Click](https://qr.ryanparman.com/qr.png?size=150&body=https%3A%2F%2Fryanparman.com)
 
 #### Telephone
 
@@ -61,7 +61,7 @@ Standard `tel:` links should work here. See [CSS-Tricks: The Current State of Te
 tel:+18005551212
 ```
 
-![](https://qr.ryanparman.com/qr.png?size=150&body=tel:+18005551212)
+[Click](https://qr.ryanparman.com/qr.png?size=150&body=tel:+18005551212)
 
 #### SMS/MMS/FaceTime
 
@@ -83,7 +83,7 @@ facetime-audio:+18005551212
 facetime-audio:me@icloud.com
 ```
 
-![](https://qr.ryanparman.com/qr.png?size=150&body=sms:+18005551212:This%20is%20my%20text%20message.)
+[Click](https://qr.ryanparman.com/qr.png?size=150&body=sms:+18005551212:This%20is%20my%20text%20message.)
 
 #### Maps, Geo Coordinates
 
@@ -93,11 +93,11 @@ Geographic coordinates are as simple as the latitude + longitude.
 geo:47.603363,-122.330417
 ```
 
-![](https://qr.ryanparman.com/qr.png?size=150&body=geo:47.603363,-122.330417)
+[Click](https://qr.ryanparman.com/qr.png?size=150&body=geo:47.603363,-122.330417)
 
 Services like [Apple Maps](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html#//apple_ref/doc/uid/TP40007899-CH5-SW1) and [Google Maps](https://developers.google.com/maps/documentation/maps-static/intro) have more thorough implemenations with more options.
 
-![](https://qr.ryanparman.com/qr.png?size=300&body=https%3A%2F%2Fmaps.apple.com%2F%3Faddress%3D400%2520Broad%2520St%2C%2520Seattle%2C%2520WA%2520%252098109%2C%2520United%2520States%26auid%3D17457489312301189071%26ll%3D47.620521%2C-122.349293%26lsp%3D9902%26q%3DSpace%2520Needle) ![](https://qr.ryanparman.com/qr.png?size=300&body=https%3A%2F%2Fmaps.google.com%2F%3Faddress%3D400%2520Broad%2520St%2C%2520Seattle%2C%2520WA%2520%252098109%2C%2520United%2520States%26auid%3D17457489312301189071%26ll%3D47.620521%2C-122.349293%26lsp%3D9902%26q%3DSpace%2520Needle)
+[Click](https://qr.ryanparman.com/qr.png?size=300&body=https%3A%2F%2Fmaps.apple.com%2F%3Faddress%3D400%2520Broad%2520St%2C%2520Seattle%2C%2520WA%2520%252098109%2C%2520United%2520States%26auid%3D17457489312301189071%26ll%3D47.620521%2C-122.349293%26lsp%3D9902%26q%3DSpace%2520Needle) ![](https://qr.ryanparman.com/qr.png?size=300&body=https%3A%2F%2Fmaps.google.com%2F%3Faddress%3D400%2520Broad%2520St%2C%2520Seattle%2C%2520WA%2520%252098109%2C%2520United%2520States%26auid%3D17457489312301189071%26ll%3D47.620521%2C-122.349293%26lsp%3D9902%26q%3DSpace%2520Needle)
 
 #### Email
 
@@ -117,7 +117,7 @@ mailto:someone@yoursite.com?cc=someoneelse@theirsite.com,another@thatsite.com,me
 mailto:someone@yoursite.com?cc=someoneelse@theirsite.com,another@thatsite.com,me@mysite.com&bcc=lastperson@theirsite.com&subject=Big%20News&body=Body%20goes%20here.
 ```
 
-![](https://qr.ryanparman.com/qr.png?size=300&body=mailto%3Asomeone%40yoursite.com%3Fcc%3Dsomeoneelse%40theirsite.com%2Canother%40thatsite.com%2Cme%40mysite.com%26bcc%3Dlastperson%40theirsite.com%26subject%3DBig%2520News%26body%3DBody%2520goes%2520here.)
+[Click](https://qr.ryanparman.com/qr.png?size=300&body=mailto%3Asomeone%40yoursite.com%3Fcc%3Dsomeoneelse%40theirsite.com%2Canother%40thatsite.com%2Cme%40mysite.com%26bcc%3Dlastperson%40theirsite.com%26subject%3DBig%2520News%26body%3DBody%2520goes%2520here.)
 
 #### Calendar Event
 
@@ -131,7 +131,7 @@ DTEND:20180831T070000Z
 END:VEVENT
 ```
 
-![](https://qr.ryanparman.com/qr.png?size=300&body=BEGIN%3AVEVENT%0ASUMMARY%3ASummer%2BVacation%21%0ADTSTART%3A20180601T070000Z%0ADTEND%3A20180831T070000Z%0AEND%3AVEVENT)
+[Click](https://qr.ryanparman.com/qr.png?size=300&body=BEGIN%3AVEVENT%0ASUMMARY%3ASummer%2BVacation%21%0ADTSTART%3A20180601T070000Z%0ADTEND%3A20180831T070000Z%0AEND%3AVEVENT)
 
 #### vCard
 
@@ -151,7 +151,7 @@ X-SOCIALPROFILE;TYPE=twitter:https://twitter.com/skyzyx
 END:VCARD
 ```
 
-![](https://qr.ryanparman.com/qr.png?size=300&body=BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3AParman%3BRyan%3B%3B%3B%0AFN%3ARyan%20Parman%0ATITLE%3ASoftware%2FDevOps%2FSecurity%20Engineer%0AEMAIL%3BTYPE%3DINTERNET%3BTYPE%3DHOME%3BTYPE%3Dpref%3Aryan%40ryanparman.com%0AURL%3BTYPE%3DHomepage%3Ahttps%3A%2F%2Fryanparman.com%0AURL%3BTYPE%3DGitHub%3Ahttps%3A%2F%2Fgithub.com%2Fskyzyx%0AURL%3BTYPE%3DKeybase%3Ahttps%3A%2F%2Fkeybase.io%2Fskyzyx%0AX-SOCIALPROFILE%3BTYPE%3Dtwitter%3Ahttps%3A%2F%2Ftwitter.com%2Fskyzyx%0AEND%3AVCARD%0A)
+[Click](https://qr.ryanparman.com/qr.png?size=300&body=BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3AParman%3BRyan%3B%3B%3B%0AFN%3ARyan%20Parman%0ATITLE%3ASoftware%2FDevOps%2FSecurity%20Engineer%0AEMAIL%3BTYPE%3DINTERNET%3BTYPE%3DHOME%3BTYPE%3Dpref%3Aryan%40ryanparman.com%0AURL%3BTYPE%3DHomepage%3Ahttps%3A%2F%2Fryanparman.com%0AURL%3BTYPE%3DGitHub%3Ahttps%3A%2F%2Fgithub.com%2Fskyzyx%0AURL%3BTYPE%3DKeybase%3Ahttps%3A%2F%2Fkeybase.io%2Fskyzyx%0AX-SOCIALPROFILE%3BTYPE%3Dtwitter%3Ahttps%3A%2F%2Ftwitter.com%2Fskyzyx%0AEND%3AVCARD%0A)
 
 #### MECARD
 
