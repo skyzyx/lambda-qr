@@ -19,18 +19,143 @@ Additionally, it accepts 2 query-string parameters.
 
 | Parameter | Example | Description |
 | --------- | ------- | ----------- |
-| `body` | `Hello world!` | (Required) The contents of the QR code. **No attempt is made to ascertain meaning from the input.** As such, it would be wise of you to review the QR Code formatting documentation at [github:zxing/zxing](https://github.com/zxing/zxing/wiki/Barcode-Contents). |
+| `body` | `Hello world!` | (Required) The contents of the QR code. **No attempt is made to ascertain meaning from the input.** As such, it would be wise of you to review the QR Code formatting documentation at [github:zxing/zxing](https://github.com/zxing/zxing/wiki/Barcode-Contents). Value should be URL-encoded. |
 | `size` | `300` | (Optional) For the PNG format, this is the length (in pixels) of one size of the square QR code. Allowed range is `150`–`1000`. The default value is `300`. |
-
-```
-https://qr.ryanparman.com/qr.png?size=600&body=Hello%20world!
-```
 
 > **NOTE:** Different browsers support different maximum lengths for URLs, with a generally-accepted answer of 2083 characters end-to-end. Some browsers support longer URLs, but in practice, trying to pack that much data into a little QR code results in a barely-usable QR code. As such, it is recommended that you stick to less verbose data structures.
 
 ### Response Bodies
 
 The bodies of the responses contain PNG-formatted binary data, or SVG-formatted XML data. Both could be written directly to disk as a file.
+
+### Example Data
+
+#### Plain Text
+
+The most boring and unformatted of plain text.
+
+```plain
+Hello world!
+```
+
+![](https://qr.ryanparman.com/qr.png?size=150&body=Hello%20world!)
+
+#### Wi-Fi connection
+
+#### URL
+
+Any URL is valid, but most QR readers will only support `http:` and `https`.
+
+```plain
+https://ryanparman.com
+```
+
+![](https://qr.ryanparman.com/qr.png?size=150&body=https%3A%2F%2Fryanparman.com)
+
+#### Telephone
+
+Standard `tel:` links should work here. See [CSS-Tricks: The Current State of Telephone Links](https://css-tricks.com/the-current-state-of-telephone-links/) and [Apple URL Scheme Reference: Phone Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html) for some examples. You should generally use the most complete version of a telephone number possible (i.e., country code + area code + number).
+
+```plain
+# U.S. Directory assistance
+tel:+18005551212
+```
+
+![](https://qr.ryanparman.com/qr.png?size=150&body=tel:+18005551212)
+
+#### SMS/MMS/FaceTime
+
+Similar to telephone links. See [CSS-Tricks: iPhone Calling and Texting Links](https://css-tricks.com/snippets/html/iphone-calling-and-texting-links/), [Apple URL Scheme Reference: SMS Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/SMSLinks/SMSLinks.html#//apple_ref/doc/uid/TP40007899-CH7-SW1), and [Apple URL Scheme Reference: FaceTime Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/FacetimeLinks/FacetimeLinks.html#//apple_ref/doc/uid/TP40007899-CH2-SW1) for some examples.
+
+```plain
+# Send an SMS/MMS to a number
+sms:+18005551212
+
+# Send an SMS/MMS to a number with pre-filled message.
+sms:+18005551212:This%20is%20my%20text%20message.
+
+# FaceTime Video
+facetime:+18005551212
+facetime:me@icloud.com
+
+# FaceTime Audio
+facetime-audio:+18005551212
+facetime-audio:me@icloud.com
+```
+
+![](https://qr.ryanparman.com/qr.png?size=150&body=sms:+18005551212:This%20is%20my%20text%20message.)
+
+#### Maps, Geo Coordinates
+
+Geographic coordinates are as simple as the latitude + longitude.
+
+```plain
+geo:47.603363,-122.330417
+```
+
+![](https://qr.ryanparman.com/qr.png?size=150&body=geo:47.603363,-122.330417)
+
+Services like [Apple Maps](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html#//apple_ref/doc/uid/TP40007899-CH5-SW1) and [Google Maps](https://developers.google.com/maps/documentation/maps-static/intro) have more thorough implemenations with more options.
+
+![](https://qr.ryanparman.com/qr.png?size=300&body=https%3A%2F%2Fmaps.apple.com%2F%3Faddress%3D400%2520Broad%2520St%2C%2520Seattle%2C%2520WA%2520%252098109%2C%2520United%2520States%26auid%3D17457489312301189071%26ll%3D47.620521%2C-122.349293%26lsp%3D9902%26q%3DSpace%2520Needle) ![](https://qr.ryanparman.com/qr.png?size=300&body=https%3A%2F%2Fmaps.google.com%2F%3Faddress%3D400%2520Broad%2520St%2C%2520Seattle%2C%2520WA%2520%252098109%2C%2520United%2520States%26auid%3D17457489312301189071%26ll%3D47.620521%2C-122.349293%26lsp%3D9902%26q%3DSpace%2520Needle)
+
+#### Email
+
+All of the standard `mailto:` tricks/links should work here as well. See [CSS-Tricks: Mailto Links](https://css-tricks.com/snippets/html/mailto-links/), [Apple URL Scheme Reference: Mail Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MailLinks/MailLinks.html#//apple_ref/doc/uid/TP40007899-CH4-SW1), and [RFC 6068](https://tools.ietf.org/html/rfc6068) for some examples.
+
+```plain
+# Address
+mailto:someone@yoursite.com
+
+# Address, subject
+mailto:someone@yoursite.com?subject=Mail%20from%20Our%20Site
+
+# Address, CC, BCC, subject
+mailto:someone@yoursite.com?cc=someoneelse@theirsite.com,another@thatsite.com,me@mysite.com&bcc=lastperson@theirsite.com&subject=Big%20News
+
+# Address, CC, BCC, subject, body
+mailto:someone@yoursite.com?cc=someoneelse@theirsite.com,another@thatsite.com,me@mysite.com&bcc=lastperson@theirsite.com&subject=Big%20News&body=Body%20goes%20here.
+```
+
+![](https://qr.ryanparman.com/qr.png?size=300&body=mailto%3Asomeone%40yoursite.com%3Fcc%3Dsomeoneelse%40theirsite.com%2Canother%40thatsite.com%2Cme%40mysite.com%26bcc%3Dlastperson%40theirsite.com%26subject%3DBig%2520News%26body%3DBody%2520goes%2520here.)
+
+#### Calendar Event
+
+The newer [iCalendar](https://en.wikipedia.org/wiki/ICalendar) (`.ics`) format, as well as the older [vCalendar](https://en.wikipedia.org/wiki/ICalendar#vCalendar_1.0) (`.vcs`) format both define a sub-set of their formats for _events_. These are [vEvents](https://icalendar.org/iCalendar-RFC-5545/3-6-1-event-component.html).
+
+```vevent
+BEGIN:VEVENT
+SUMMARY:Summer+Vacation!
+DTSTART:20180601T070000Z
+DTEND:20180831T070000Z
+END:VEVENT
+```
+
+![](https://qr.ryanparman.com/qr.png?size=300&body=BEGIN%3AVEVENT%0ASUMMARY%3ASummer%2BVacation%21%0ADTSTART%3A20180601T070000Z%0ADTEND%3A20180831T070000Z%0AEND%3AVEVENT)
+
+#### vCard
+
+Many apps understand the vCard specification. The wiki for [mangstadt/ez-vcard](https://github.com/mangstadt/ez-vcard) provides documentation for [Version differences](https://github.com/mangstadt/ez-vcard/wiki/Version-differences) and [Property lists](https://github.com/mangstadt/ez-vcard/wiki/Property-List) between the various versions of the vCard specification.
+
+```vcard
+BEGIN:VCARD
+VERSION:3.0
+N:Parman;Ryan;;;
+FN:Ryan Parman
+TITLE:Software/DevOps/Security Engineer
+EMAIL;TYPE=INTERNET;TYPE=HOME;TYPE=pref:ryan@ryanparman.com
+URL;TYPE=Homepage:https://ryanparman.com
+URL;TYPE=GitHub:https://github.com/skyzyx
+URL;TYPE=Keybase:https://keybase.io/skyzyx
+X-SOCIALPROFILE;TYPE=twitter:https://twitter.com/skyzyx
+END:VCARD
+```
+
+![](https://qr.ryanparman.com/qr.png?size=300&body=BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3AParman%3BRyan%3B%3B%3B%0AFN%3ARyan%20Parman%0ATITLE%3ASoftware%2FDevOps%2FSecurity%20Engineer%0AEMAIL%3BTYPE%3DINTERNET%3BTYPE%3DHOME%3BTYPE%3Dpref%3Aryan%40ryanparman.com%0AURL%3BTYPE%3DHomepage%3Ahttps%3A%2F%2Fryanparman.com%0AURL%3BTYPE%3DGitHub%3Ahttps%3A%2F%2Fgithub.com%2Fskyzyx%0AURL%3BTYPE%3DKeybase%3Ahttps%3A%2F%2Fkeybase.io%2Fskyzyx%0AX-SOCIALPROFILE%3BTYPE%3Dtwitter%3Ahttps%3A%2F%2Ftwitter.com%2Fskyzyx%0AEND%3AVCARD%0A)
+
+#### MECARD
+
+TBD
 
 ## Developing/Deploying
 
