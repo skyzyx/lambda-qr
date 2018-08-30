@@ -23,13 +23,14 @@ plugins:
 custom:
   domain: qr.ryanparman.com
   bucket: qr-ryanparman-com
+  certificate: arn:aws:acm:us-east-1:133904017518:certificate/ae20acba-5cb6-4833-8946-1ace80a118a2
   apigwBinary:
     types:
       - "image/png"
       - "*/*"
   apiCloudFront:
     domain: ${self:custom.domain}
-    compress: true
+    certificate: ${self:custom.certificate}
     logging:
       bucket: ${self:custom.bucket}.s3.amazonaws.com
       prefix: ${self:provider.stage}
