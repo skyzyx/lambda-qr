@@ -42,7 +42,7 @@ Hello world!
 
 #### Wi-Fi connection
 
-Wi-Fi connections are supported in iOS 11 and newer.
+Wi-Fi connections are supported in iOS 11 (2017) and newer, and nearly all versions of Android going back to at least 2010.
 
 ```plain
 WIFI:T:WPA;S:ThisIsMySSID;P:ThisIsMyPassword;;
