@@ -6,6 +6,8 @@ This is a _Serverless_ app, written in Go ([Golang]), running in AWS Lambda, wit
 
 **This is an experiment.** Uptime is not guaranteed, and there is no SLA. _But_ all-in-all, it should be reasonably reliable.
 
+> **NOTE:** I've tried to build this in a way that is very cheap to run. But if you find yourself using this more than just occasionally, consider kicking me down a few bucks to offset the cost of running this service. <https://cash.me/$rparman>
+
 ## Usage
 
 The `https://qr.ryanparman.com` hostname is a CloudFront caching distribution, in front of API Gateway, in front of a Lambda function.
