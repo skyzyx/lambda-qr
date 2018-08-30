@@ -42,6 +42,14 @@ Hello world!
 
 #### Wi-Fi connection
 
+Wi-Fi connections are supported in iOS 11 and newer.
+
+```plain
+WIFI:T:WPA;S:ThisIsMySSID;P:ThisIsMyPassword;;
+```
+
+[Click](https://qr.ryanparman.com/qr.png?size=150&body=WIFI%3AT%3AWPA%3BS%3AThisIsMySSID%3BP%3AThisIsMyPassword%3B%3B)
+
 #### URL
 
 Any URL is valid, but most QR readers will only support `http:` and `https`.
