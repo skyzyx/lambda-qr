@@ -163,7 +163,13 @@ END:VCARD
 
 #### MECARD
 
-TBD
+[MECARD](https://en.wikipedia.org/wiki/MeCard_(QR_code)) is a format for contact information, which is much simpler (and less verbose) than vCard. It was created by NTT Docomo in Japan.
+
+```mecard
+MECARD:N:Parman,Ryan;EMAIL:ryan@ryanparman.com;URL:https://ryanparman.com;NOTE:https://github.com/skyzyx\nhttps://keybase.io/skyzyx\nhttps://twitter.com/skyzyx
+```
+
+[Click](https://qr.ryanparman.com/qr.png?size=300&body=MECARD%3AN%3AParman%2CRyan%3BEMAIL%3Aryan%40ryanparman.com%3BURL%3Ahttps%3A%2F%2Fryanparman.com%3BNOTE%3Ahttps%3A%2F%2Fgithub.com%2Fskyzyx%5Cnhttps%3A%2F%2Fkeybase.io%2Fskyzyx%5Cnhttps%3A%2F%2Ftwitter.com%2Fskyzyx)
 
 ## Developing/Deploying
 
