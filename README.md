@@ -32,16 +32,6 @@ The bodies of the responses contain PNG-formatted binary data, or SVG-formatted 
 
 ### Example Data
 
-#### Plain Text
-
-The most boring and unformatted of plain text.
-
-```plain
-Hello world!
-```
-
-[Click](https://qr.ryanparman.com/qr.png?size=150&body=Hello%20world!)
-
 #### Wi-Fi connection
 
 Wi-Fi connections are supported in iOS 11 (2017) and newer, and nearly all versions of Android going back to at least 2010.
