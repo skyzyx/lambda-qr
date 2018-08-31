@@ -32,35 +32,6 @@ The bodies of the responses contain PNG-formatted binary data, or SVG-formatted 
 
 ### Example Data
 
-#### SMS/MMS/FaceTime
-
-Similar to telephone links.
-
-```plain
-# Send an SMS/MMS to a number
-sms:+18005551212
-
-# Send an SMS/MMS to a number with pre-filled message.
-sms:+18005551212:This%20is%20my%20text%20message.
-
-# FaceTime Video
-facetime:+18005551212
-facetime:me@icloud.com
-
-# FaceTime Audio
-facetime-audio:+18005551212
-facetime-audio:me@icloud.com
-```
-
-See also…
-
-* [CSS-Tricks: iPhone Calling and Texting Links](https://css-tricks.com/snippets/html/iphone-calling-and-texting-links/)
-* [Apple URL Scheme Reference: SMS Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/SMSLinks/SMSLinks.html#//apple_ref/doc/uid/TP40007899-CH7-SW1)
-* [Apple URL Scheme Reference: FaceTime Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/FacetimeLinks/FacetimeLinks.html#//apple_ref/doc/uid/TP40007899-CH2-SW1)
-* [Android: Common Intents](https://developer.android.com/guide/components/intents-common#Messaging)
-
-[Click](https://qr.ryanparman.com/qr.png?size=150&body=sms:+18005551212:This%20is%20my%20text%20message.)
-
 #### Maps, Geo Coordinates
 
 Geographic coordinates are as simple as the latitude + longitude.
