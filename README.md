@@ -50,6 +50,17 @@ Wi-Fi connections are supported in iOS 11 (2017) and newer, and nearly all versi
 WIFI:T:WPA;S:ThisIsMySSID;P:ThisIsMyPassword;;
 ```
 
+From https://github.com/zxing/zxing/wiki/Barcode-Contents:
+
+> | Parameter | Example | Description |
+> | --------- | ------- | ----------- |
+> | T | WPA | Authentication type; can be WEP or WPA, or 'nopass' for no password. Or, omit for no password. |
+> | S | mynetwork | Network SSID. Required. Enclose in double quotes if it is an ASCII name, but could be interpreted as hex (i.e. "ABCD") |
+> | P | mypass | Password, ignored if T is "nopass" (in which case it may be omitted). Enclose in double quotes if it is an ASCII name, but could be interpreted as hex (i.e. "ABCD") |
+> | H | true | Optional. True if the network SSID is hidden. |
+> 
+> Order of fields does not matter. Special characters "\", ";", "," and ":" should be escaped with a backslash ("\") as in MECARD encoding. For example, if an SSID was literally `"foo;bar\baz"` (with double quotes part of the SSID name itself) then it would be encoded like: `WIFI:S:\"foo\;bar\\baz\";;`
+
 [Click](https://qr.ryanparman.com/qr.png?size=150&body=WIFI%3AT%3AWPA%3BS%3AThisIsMySSID%3BP%3AThisIsMyPassword%3B%3B)
 
 #### URL
@@ -75,14 +86,13 @@ See also…
 
 * [CSS-Tricks: The Current State of Telephone Links](https://css-tricks.com/the-current-state-of-telephone-links/)
 * [Apple URL Scheme Reference: Phone Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html)
-* [Android: Common Intents](https://developer.android.com/guide/components/intents-common#Phone) 
-* [Apple URL Scheme Reference: Phone Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html)
+* [Android: Common Intents](https://developer.android.com/guide/components/intents-common#Phone)
 
 [Click](https://qr.ryanparman.com/qr.png?size=150&body=tel:+18005551212)
 
 #### SMS/MMS/FaceTime
 
-Similar to telephone links. See [CSS-Tricks: iPhone Calling and Texting Links](https://css-tricks.com/snippets/html/iphone-calling-and-texting-links/), [Apple URL Scheme Reference: SMS Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/SMSLinks/SMSLinks.html#//apple_ref/doc/uid/TP40007899-CH7-SW1), and [Apple URL Scheme Reference: FaceTime Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/FacetimeLinks/FacetimeLinks.html#//apple_ref/doc/uid/TP40007899-CH2-SW1) for some examples.
+Similar to telephone links.
 
 ```plain
 # Send an SMS/MMS to a number
@@ -99,6 +109,13 @@ facetime:me@icloud.com
 facetime-audio:+18005551212
 facetime-audio:me@icloud.com
 ```
+
+See also…
+
+* [CSS-Tricks: iPhone Calling and Texting Links](https://css-tricks.com/snippets/html/iphone-calling-and-texting-links/)
+* [Apple URL Scheme Reference: SMS Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/SMSLinks/SMSLinks.html#//apple_ref/doc/uid/TP40007899-CH7-SW1)
+* [Apple URL Scheme Reference: FaceTime Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/FacetimeLinks/FacetimeLinks.html#//apple_ref/doc/uid/TP40007899-CH2-SW1)
+* [Android: Common Intents](https://developer.android.com/guide/components/intents-common#Messaging)
 
 [Click](https://qr.ryanparman.com/qr.png?size=150&body=sms:+18005551212:This%20is%20my%20text%20message.)
 
@@ -179,6 +196,51 @@ MECARD:N:Parman,Ryan;EMAIL:ryan@ryanparman.com;URL:https://ryanparman.com;NOTE:h
 ```
 
 [Click](https://qr.ryanparman.com/qr.png?size=300&body=MECARD%3AN%3AParman%2CRyan%3BEMAIL%3Aryan%40ryanparman.com%3BURL%3Ahttps%3A%2F%2Fryanparman.com%3BNOTE%3Ahttps%3A%2F%2Fgithub.com%2Fskyzyx%5Cnhttps%3A%2F%2Fkeybase.io%2Fskyzyx%5Cnhttps%3A%2F%2Ftwitter.com%2Fskyzyx)
+
+#### Google Play Store
+
+You can construct URIs that (on Android devices) link directly into Google Play Store. For example to encode a link to an app whose package is `com.agilebits.onepassword`, use:
+
+```plain
+market://details?id=com.agilebits.onepassword
+```
+
+[Click](https://qr.ryanparman.com/qr.png?size=300&body=market%3A%2F%2Fdetails%3Fid%3Dcom.agilebits.onepassword)
+
+#### iTunes and App Store
+
+```plain
+# Apple Music, iTunes Music Store
+https://geo.itunes.apple.com/us/album/concrete-and-gold/1249068417?mt=1&app=music
+https://geo.itunes.apple.com/us/album/concrete-and-gold/1249068417?mt=1&app=itunes
+
+# iBooks Store
+https://geo.itunes.apple.com/us/book/crazy-rich-asians/id588213164?mt=11
+
+# App Store
+https://itunes.apple.com/us/app/1password-password-manager/id568903335?mt=8
+```
+
+See also…
+
+* [Apple URL Scheme Reference: iTunes Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/iTunesLinks/iTunesLinks.html#//apple_ref/doc/uid/TP40007899-CH3-SW1)
+* [iTunes Link Maker](https://linkmaker.itunes.apple.com)
+
+[Click](https://qr.ryanparman.com/qr.png?size=300&body=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2F1password-password-manager%2Fid568903335%3Fmt%3D8)
+
+#### YouTube
+
+You can use the `youtube:` protocol, or a standard link to YouTube.
+
+```plain
+youtube://ifwc5xgI3QM
+https://youtu.be/ifwc5xgI3QM
+https://www.youtube.com/watch?v=ifwc5xgI3QM
+```
+
+* [Apple URL Scheme Reference: YouTube Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/YouTubeLinks/YouTubeLinks.html#//apple_ref/doc/uid/TP40007899-CH8-SW1)
+
+[Click](https://qr.ryanparman.com/qr.png?size=300&body=youtube%3A%2F%2Fifwc5xgI3QM)
 
 ## Developing/Deploying
 
