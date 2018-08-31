@@ -32,26 +32,6 @@ The bodies of the responses contain PNG-formatted binary data, or SVG-formatted 
 
 ### Example Data
 
-#### vCard
-
-Many apps understand the vCard specification. The wiki for [mangstadt/ez-vcard](https://github.com/mangstadt/ez-vcard) provides documentation for [Version differences](https://github.com/mangstadt/ez-vcard/wiki/Version-differences) and [Property lists](https://github.com/mangstadt/ez-vcard/wiki/Property-List) between the various versions of the vCard specification.
-
-```vcard
-BEGIN:VCARD
-VERSION:3.0
-N:Parman;Ryan;;;
-FN:Ryan Parman
-TITLE:Software/DevOps/Security Engineer
-EMAIL;TYPE=INTERNET;TYPE=HOME;TYPE=pref:ryan@ryanparman.com
-URL;TYPE=Homepage:https://ryanparman.com
-URL;TYPE=GitHub:https://github.com/skyzyx
-URL;TYPE=Keybase:https://keybase.io/skyzyx
-X-SOCIALPROFILE;TYPE=twitter:https://twitter.com/skyzyx
-END:VCARD
-```
-
-[Click](https://qr.ryanparman.com/qr.png?size=300&body=BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3AParman%3BRyan%3B%3B%3B%0AFN%3ARyan%20Parman%0ATITLE%3ASoftware%2FDevOps%2FSecurity%20Engineer%0AEMAIL%3BTYPE%3DINTERNET%3BTYPE%3DHOME%3BTYPE%3Dpref%3Aryan%40ryanparman.com%0AURL%3BTYPE%3DHomepage%3Ahttps%3A%2F%2Fryanparman.com%0AURL%3BTYPE%3DGitHub%3Ahttps%3A%2F%2Fgithub.com%2Fskyzyx%0AURL%3BTYPE%3DKeybase%3Ahttps%3A%2F%2Fkeybase.io%2Fskyzyx%0AX-SOCIALPROFILE%3BTYPE%3Dtwitter%3Ahttps%3A%2F%2Ftwitter.com%2Fskyzyx%0AEND%3AVCARD%0A)
-
 #### Google Play Store
 
 You can construct URIs that (on Android devices) link directly into Google Play Store. For example to encode a link to an app whose package is `com.agilebits.onepassword`, use:
