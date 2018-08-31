@@ -32,26 +32,6 @@ The bodies of the responses contain PNG-formatted binary data, or SVG-formatted 
 
 ### Example Data
 
-#### Wi-Fi connection
-
-Wi-Fi connections are supported in iOS 11 (2017) and newer, and nearly all versions of Android going back to at least 2010.
-
-```plain
-WIFI:T:WPA;S:ThisIsMySSID;P:ThisIsMyPassword;;
-```
-
-From https://github.com/zxing/zxing/wiki/Barcode-Contents:
-
-> | Parameter | Example | Description |
-> | --------- | ------- | ----------- |
-> | T | WPA | Authentication type; can be WEP or WPA, or 'nopass' for no password. Or, omit for no password. |
-> | S | mynetwork | Network SSID. Required. Enclose in double quotes if it is an ASCII name, but could be interpreted as hex (i.e. "ABCD") |
-> | P | mypass | Password, ignored if T is "nopass" (in which case it may be omitted). Enclose in double quotes if it is an ASCII name, but could be interpreted as hex (i.e. "ABCD") |
-> | H | true | Optional. True if the network SSID is hidden. |
-> 
-> Order of fields does not matter. Special characters "\", ";", "," and ":" should be escaped with a backslash ("\") as in MECARD encoding. For example, if an SSID was literally `"foo;bar\baz"` (with double quotes part of the SSID name itself) then it would be encoded like: `WIFI:S:\"foo\;bar\\baz\";;`
-
-[Click](https://qr.ryanparman.com/qr.png?size=150&body=WIFI%3AT%3AWPA%3BS%3AThisIsMySSID%3BP%3AThisIsMyPassword%3B%3B)
 
 #### URL
 
