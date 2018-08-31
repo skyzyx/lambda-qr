@@ -32,20 +32,6 @@ The bodies of the responses contain PNG-formatted binary data, or SVG-formatted 
 
 ### Example Data
 
-#### Maps, Geo Coordinates
-
-Geographic coordinates are as simple as the latitude + longitude.
-
-```plain
-geo:47.603363,-122.330417
-```
-
-[Click](https://qr.ryanparman.com/qr.png?size=150&body=geo:47.603363,-122.330417)
-
-Services like [Apple Maps](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html#//apple_ref/doc/uid/TP40007899-CH5-SW1) and [Google Maps](https://developers.google.com/maps/documentation/maps-static/intro) have more thorough implemenations with more options.
-
-[Apple Maps](https://qr.ryanparman.com/qr.png?size=300&body=https%3A%2F%2Fmaps.apple.com%2F%3Faddress%3D400%2520Broad%2520St%2C%2520Seattle%2C%2520WA%2520%252098109%2C%2520United%2520States%26auid%3D17457489312301189071%26ll%3D47.620521%2C-122.349293%26lsp%3D9902%26q%3DSpace%2520Needle) [Google Maps](https://qr.ryanparman.com/qr.png?size=300&body=https%3A%2F%2Fmaps.google.com%2F%3Faddress%3D400%2520Broad%2520St%2C%2520Seattle%2C%2520WA%2520%252098109%2C%2520United%2520States%26auid%3D17457489312301189071%26ll%3D47.620521%2C-122.349293%26lsp%3D9902%26q%3DSpace%2520Needle)
-
 #### Email
 
 All of the standard `mailto:` tricks/links should work here as well. See [CSS-Tricks: Mailto Links](https://css-tricks.com/snippets/html/mailto-links/), [Apple URL Scheme Reference: Mail Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MailLinks/MailLinks.html#//apple_ref/doc/uid/TP40007899-CH4-SW1), and [RFC 6068](https://tools.ietf.org/html/rfc6068) for some examples.
