@@ -75,6 +75,8 @@ See also…
 
 * [CSS-Tricks: The Current State of Telephone Links](https://css-tricks.com/the-current-state-of-telephone-links/)
 * [Apple URL Scheme Reference: Phone Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html)
+* [Android: Common Intents](https://developer.android.com/guide/components/intents-common#Phone) 
+* [Apple URL Scheme Reference: Phone Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html)
 
 [Click](https://qr.ryanparman.com/qr.png?size=150&body=tel:+18005551212)
 
