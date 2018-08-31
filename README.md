@@ -32,26 +32,6 @@ The bodies of the responses contain PNG-formatted binary data, or SVG-formatted 
 
 ### Example Data
 
-#### Email
-
-All of the standard `mailto:` tricks/links should work here as well. See [CSS-Tricks: Mailto Links](https://css-tricks.com/snippets/html/mailto-links/), [Apple URL Scheme Reference: Mail Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/MailLinks/MailLinks.html#//apple_ref/doc/uid/TP40007899-CH4-SW1), and [RFC 6068](https://tools.ietf.org/html/rfc6068) for some examples.
-
-```plain
-# Address
-mailto:someone@yoursite.com
-
-# Address, subject
-mailto:someone@yoursite.com?subject=Mail%20from%20Our%20Site
-
-# Address, CC, BCC, subject
-mailto:someone@yoursite.com?cc=someoneelse@theirsite.com,another@thatsite.com,me@mysite.com&bcc=lastperson@theirsite.com&subject=Big%20News
-
-# Address, CC, BCC, subject, body
-mailto:someone@yoursite.com?cc=someoneelse@theirsite.com,another@thatsite.com,me@mysite.com&bcc=lastperson@theirsite.com&subject=Big%20News&body=Body%20goes%20here.
-```
-
-[Click](https://qr.ryanparman.com/qr.png?size=300&body=mailto%3Asomeone%40yoursite.com%3Fcc%3Dsomeoneelse%40theirsite.com%2Canother%40thatsite.com%2Cme%40mysite.com%26bcc%3Dlastperson%40theirsite.com%26subject%3DBig%2520News%26body%3DBody%2520goes%2520here.)
-
 #### vCard
 
 Many apps understand the vCard specification. The wiki for [mangstadt/ez-vcard](https://github.com/mangstadt/ez-vcard) provides documentation for [Version differences](https://github.com/mangstadt/ez-vcard/wiki/Version-differences) and [Property lists](https://github.com/mangstadt/ez-vcard/wiki/Property-List) between the various versions of the vCard specification.
