@@ -32,29 +32,7 @@ The bodies of the responses contain PNG-formatted binary data, or SVG-formatted 
 
 ### Example Data
 
-#### Google Play Store
-
-You can construct URIs that (on Android devices) link directly into Google Play Store. For example to encode a link to an app whose package is `com.agilebits.onepassword`, use:
-
-```plain
-market://details?id=com.agilebits.onepassword
-```
-
-[Click](https://qr.ryanparman.com/qr.png?size=300&body=market%3A%2F%2Fdetails%3Fid%3Dcom.agilebits.onepassword)
-
-#### YouTube
-
-You can use the `youtube:` protocol, or a standard link to YouTube.
-
-```plain
-youtube://ifwc5xgI3QM
-https://youtu.be/ifwc5xgI3QM
-https://www.youtube.com/watch?v=ifwc5xgI3QM
-```
-
-* [Apple URL Scheme Reference: YouTube Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/YouTubeLinks/YouTubeLinks.html#//apple_ref/doc/uid/TP40007899-CH8-SW1)
-
-[Click](https://qr.ryanparman.com/qr.png?size=300&body=youtube%3A%2F%2Fifwc5xgI3QM)
+You can find examples of data formats which are broadly supported, in the [wiki](https://github.com/skyzyx/lambda-qr/wiki).
 
 ## Developing/Deploying
 
