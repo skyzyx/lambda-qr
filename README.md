@@ -173,16 +173,6 @@ END:VCARD
 
 [Click](https://qr.ryanparman.com/qr.png?size=300&body=BEGIN%3AVCARD%0AVERSION%3A3.0%0AN%3AParman%3BRyan%3B%3B%3B%0AFN%3ARyan%20Parman%0ATITLE%3ASoftware%2FDevOps%2FSecurity%20Engineer%0AEMAIL%3BTYPE%3DINTERNET%3BTYPE%3DHOME%3BTYPE%3Dpref%3Aryan%40ryanparman.com%0AURL%3BTYPE%3DHomepage%3Ahttps%3A%2F%2Fryanparman.com%0AURL%3BTYPE%3DGitHub%3Ahttps%3A%2F%2Fgithub.com%2Fskyzyx%0AURL%3BTYPE%3DKeybase%3Ahttps%3A%2F%2Fkeybase.io%2Fskyzyx%0AX-SOCIALPROFILE%3BTYPE%3Dtwitter%3Ahttps%3A%2F%2Ftwitter.com%2Fskyzyx%0AEND%3AVCARD%0A)
 
-#### MECARD
-
-[MECARD](https://en.wikipedia.org/wiki/MeCard_(QR_code)) is a format for contact information, which is much simpler (and less verbose) than vCard. It was created by NTT Docomo in Japan.
-
-```mecard
-MECARD:N:Parman,Ryan;EMAIL:ryan@ryanparman.com;URL:https://ryanparman.com;NOTE:https://github.com/skyzyx\nhttps://keybase.io/skyzyx\nhttps://twitter.com/skyzyx
-```
-
-[Click](https://qr.ryanparman.com/qr.png?size=300&body=MECARD%3AN%3AParman%2CRyan%3BEMAIL%3Aryan%40ryanparman.com%3BURL%3Ahttps%3A%2F%2Fryanparman.com%3BNOTE%3Ahttps%3A%2F%2Fgithub.com%2Fskyzyx%5Cnhttps%3A%2F%2Fkeybase.io%2Fskyzyx%5Cnhttps%3A%2F%2Ftwitter.com%2Fskyzyx)
-
 #### Google Play Store
 
 You can construct URIs that (on Android devices) link directly into Google Play Store. For example to encode a link to an app whose package is `com.agilebits.onepassword`, use:
