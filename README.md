@@ -64,12 +64,17 @@ https://ryanparman.com
 
 #### Telephone
 
-Standard `tel:` links should work here. See [CSS-Tricks: The Current State of Telephone Links](https://css-tricks.com/the-current-state-of-telephone-links/) and [Apple URL Scheme Reference: Phone Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html) for some examples. You should generally use the most complete version of a telephone number possible (i.e., country code + area code + number).
+Standard `tel:` links should work here. You should generally use the most complete version of a telephone number possible (i.e., country code + area code + number).
 
 ```plain
 # U.S. Directory assistance
 tel:+18005551212
 ```
+
+See also…
+
+* [CSS-Tricks: The Current State of Telephone Links](https://css-tricks.com/the-current-state-of-telephone-links/)
+* [Apple URL Scheme Reference: Phone Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html)
 
 [Click](https://qr.ryanparman.com/qr.png?size=150&body=tel:+18005551212)
 
