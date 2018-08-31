@@ -207,27 +207,6 @@ market://details?id=com.agilebits.onepassword
 
 [Click](https://qr.ryanparman.com/qr.png?size=300&body=market%3A%2F%2Fdetails%3Fid%3Dcom.agilebits.onepassword)
 
-#### iTunes and App Store
-
-```plain
-# Apple Music, iTunes Music Store
-https://geo.itunes.apple.com/us/album/concrete-and-gold/1249068417?mt=1&app=music
-https://geo.itunes.apple.com/us/album/concrete-and-gold/1249068417?mt=1&app=itunes
-
-# iBooks Store
-https://geo.itunes.apple.com/us/book/crazy-rich-asians/id588213164?mt=11
-
-# App Store
-https://itunes.apple.com/us/app/1password-password-manager/id568903335?mt=8
-```
-
-See also…
-
-* [Apple URL Scheme Reference: iTunes Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/iTunesLinks/iTunesLinks.html#//apple_ref/doc/uid/TP40007899-CH3-SW1)
-* [iTunes Link Maker](https://linkmaker.itunes.apple.com)
-
-[Click](https://qr.ryanparman.com/qr.png?size=300&body=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2F1password-password-manager%2Fid568903335%3Fmt%3D8)
-
 #### YouTube
 
 You can use the `youtube:` protocol, or a standard link to YouTube.
