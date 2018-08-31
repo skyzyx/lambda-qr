@@ -153,20 +153,6 @@ mailto:someone@yoursite.com?cc=someoneelse@theirsite.com,another@thatsite.com,me
 
 [Click](https://qr.ryanparman.com/qr.png?size=300&body=mailto%3Asomeone%40yoursite.com%3Fcc%3Dsomeoneelse%40theirsite.com%2Canother%40thatsite.com%2Cme%40mysite.com%26bcc%3Dlastperson%40theirsite.com%26subject%3DBig%2520News%26body%3DBody%2520goes%2520here.)
 
-#### Calendar Event
-
-The newer [iCalendar](https://en.wikipedia.org/wiki/ICalendar) (`.ics`) format, as well as the older [vCalendar](https://en.wikipedia.org/wiki/ICalendar#vCalendar_1.0) (`.vcs`) format both define a sub-set of their formats for _events_. These are [vEvents](https://icalendar.org/iCalendar-RFC-5545/3-6-1-event-component.html).
-
-```vevent
-BEGIN:VEVENT
-SUMMARY:Summer+Vacation!
-DTSTART:20180601T070000Z
-DTEND:20180831T070000Z
-END:VEVENT
-```
-
-[Click](https://qr.ryanparman.com/qr.png?size=300&body=BEGIN%3AVEVENT%0ASUMMARY%3ASummer%2BVacation%21%0ADTSTART%3A20180601T070000Z%0ADTEND%3A20180831T070000Z%0AEND%3AVEVENT)
-
 #### vCard
 
 Many apps understand the vCard specification. The wiki for [mangstadt/ez-vcard](https://github.com/mangstadt/ez-vcard) provides documentation for [Version differences](https://github.com/mangstadt/ez-vcard/wiki/Version-differences) and [Property lists](https://github.com/mangstadt/ez-vcard/wiki/Property-List) between the various versions of the vCard specification.
