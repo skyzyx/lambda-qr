@@ -32,34 +32,6 @@ The bodies of the responses contain PNG-formatted binary data, or SVG-formatted 
 
 ### Example Data
 
-
-#### URL
-
-Any URL is valid, but most QR readers will only support `http:` and `https`.
-
-```plain
-https://ryanparman.com
-```
-
-[Click](https://qr.ryanparman.com/qr.png?size=150&body=https%3A%2F%2Fryanparman.com)
-
-#### Telephone
-
-Standard `tel:` links should work here. You should generally use the most complete version of a telephone number possible (i.e., country code + area code + number).
-
-```plain
-# U.S. Directory assistance
-tel:+18005551212
-```
-
-See also…
-
-* [CSS-Tricks: The Current State of Telephone Links](https://css-tricks.com/the-current-state-of-telephone-links/)
-* [Apple URL Scheme Reference: Phone Links](https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html)
-* [Android: Common Intents](https://developer.android.com/guide/components/intents-common#Phone)
-
-[Click](https://qr.ryanparman.com/qr.png?size=150&body=tel:+18005551212)
-
 #### SMS/MMS/FaceTime
 
 Similar to telephone links.
